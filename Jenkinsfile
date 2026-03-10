@@ -1,10 +1,10 @@
 pipeline {
     agent {
        label 'AGENT-1' 
-       disableConcurrent
     }
     options {
         timeout(time: 1, unit: 'HOURS') 
+        disableConcurrentBuilds()
     }
     parameters {
         string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
