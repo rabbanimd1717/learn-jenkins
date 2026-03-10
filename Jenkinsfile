@@ -14,6 +14,10 @@ pipeline {
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
 
+    environment { 
+        Name = 'Rabbani'
+    }
+
     stages {
         stage('Build') {
             steps {
@@ -42,6 +46,11 @@ pipeline {
                 echo "Choice: ${params.CHOICE}"
 
                 echo "Password: ${params.PASSWORD}"
+            }
+        }
+        stage('Trigger') {
+            steps {
+                sh 'echo this is triger'
             }
         }
     }
