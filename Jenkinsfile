@@ -54,4 +54,15 @@ pipeline {
             }
         }
     }
+    post {
+        always{
+            sh 'echo this job run always'
+        }
+        success {
+            sh 'echo this is only job is success'
+        }
+        failure {
+            sh 'echo this is only failure'
+        }
+    }
 }
