@@ -33,6 +33,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh 'echo this is deploy'
+
+                sh jdckj
             }
         }
         stage('Params') {
