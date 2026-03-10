@@ -1,6 +1,7 @@
 pipeline {
     agent {
        label 'AGENT-1' 
+       disableConcurrent
     }
     options {
         timeout(time: 1, unit: 'HOURS') 
@@ -30,12 +31,17 @@ pipeline {
                 sh 'echo this is deploy'
             }
         }
-        stage('params') {
-            echo "Hello ${params.PERSON}"
-            echo "Biography: ${params.BIOGRAPHY}"
-            echo "Toggle: ${params.TOGGLE}"
-            echo "Choice: ${params.CHOICE}"
-            echo "Password: ${params.PASSWORD}"
-        }
+        stage('Params') {
+            steps {
+                echo "Hello ${params.PERSON}"
+
+                echo "Biography: ${params.BIOGRAPHY}"
+
+                echo "Toggle: ${params.TOGGLE}"
+
+                echo "Choice: ${params.CHOICE}"
+
+                echo "Password: ${params.PASSWORD}"
+            }
     }
 }
